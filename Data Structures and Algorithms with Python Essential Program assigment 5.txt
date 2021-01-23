@@ -1,0 +1,89 @@
+Question 1
+
+Name 5 sorting algorithms, also write their time complexities(best, average, worst).
+
+
+Algorithm	Time Complexity	 
+ 	                    Best	Average	Worst	 
+Selection Sort	Ω(n^2)	θ(n^2)	O(n^2)	 
+Bubble Sort	Ω(n)	θ(n^2)	O(n^2)	 
+Insertion Sort	Ω(n)	θ(n^2)	O(n^2)	 
+Heap Sort  	Ω(n log(n))θ(n log(n))	O(n log(n))	 
+Quick Sort	Ω(n log(n))	θ(n log(n))	O(n^2)	 
+Merge Sort	Ω(n log(n))	θ(n log(n))	O(n log(n))	 
+Bucket Sort	Ω(n+k)	θ(n+k)	O(n^2)	 
+Radix Sort	Ω(nk)	θ(nk)	O(nk)
+
+
+Question 2
+
+Implement selection sort algorithm using Python.
+
+# Python program for implementation of Selection Sort 
+import sys 
+A = [64, 25, 12, 22, 11] 
+for i in range(len(A)):   
+    min_idx = i 
+    for j in range(i+1, len(A)): 
+        if A[min_idx] > A[j]: 
+            min_idx = j        
+    A[i], A[min_idx] = A[min_idx], A[i] 
+print ("Sorted array") 
+for i in range(len(A)): 
+    print("%d" %A[i]), 
+
+Question 3
+
+Implement pop operation of the stack
+
+# Python program for implementation of stack
+
+# import maxsize from sys module 
+# Used to return -infinite when stack is empty
+from sys import maxsize
+def createStack():
+	stack = []
+	return stack
+def isEmpty(stack):
+	return len(stack) == 0
+def push(stack, item):
+	stack.append(item)
+	print(item + " pushed to stack ")
+def pop(stack):
+	if (isEmpty(stack)):
+		return str(-maxsize -1) # return minus infinite
+	return stack.pop()
+def peek(stack):
+	if (isEmpty(stack)):
+		return str(-maxsize -1) # return minus infinite
+	return stack[len(stack) - 1]
+
+stack = createStack()
+push(stack, str(10))
+push(stack, str(20))
+push(stack, str(30))
+print(pop(stack) + " popped from stack")
+
+Question 4
+
+Implement dequeue operation of the queue
+
+from collections import deque
+
+q = deque()
+
+q.append('a')
+q.append('b')
+q.append('c')
+
+print("Initial queue")
+print(q)
+
+print("\nElements dequeued from the queue")
+print(q.popleft())
+print(q.popleft())
+print(q.popleft())
+
+print("\nQueue after removing elements")
+print(q)
+
